@@ -1,1 +1,6 @@
-console.log("시간이 좀 남는 거 같아서 하는 공부");
+
+
+//행렬 덧셈
+let input = require('fs').readFileSync('1.txt').toString()
+input=input.split("\n");
+console.log(input)
