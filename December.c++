@@ -89,6 +89,8 @@ int main(){
                 }
             }
         }
+
+        
     }
     cout<<goal<<endl;
     delete[] arr1;
