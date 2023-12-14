@@ -1,5 +1,7 @@
 //행렬 덧셈 공부하면서 이차원 배열 복습하기
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -120,7 +122,6 @@ using namespace std;
 
 
 //문자열 공부
-#include <string>
 
 // int main(){
 //     string s="Test";
@@ -186,16 +187,55 @@ using namespace std;
 // }
 
 
-//문자열 다루기
+//문자열 다루기 1
+// int main(){
+//     string a;
+//     int b;
+//     cin>>a;
+//     cin>>b;
+//     for (int i=0;i<a.length();i++){
+//         if(i==b-1){
+//             cout<<a[i]<<endl;
+//         }
+//     }
+//     return 0;
+
+// }
+
+//문자열 다루기 2
+// int main(){
+//     int testcase;
+//     int r1;
+//     string s1;
+//     string s2="";
+//     vector<string> strArray; 
+//     cin>>testcase;
+//     while(testcase--){
+//         cin>>r1>>s1;
+//         for (int i=0;i<s1.length();i++){
+//             for(int j=0;j<r1;j++){
+//                 s2+=s1[i];
+//             }      
+//         }
+//         strArray.push_back(s2);
+//         s2="";
+//     }
+//     for (int i=0;i<strArray.size();i++){
+//         cout<< strArray[i]<<endl;
+//     }
+//     return 0;
+// }
+
+// 그대로 출력하기
 int main(){
-    string a;
-    int b;
-    cin>>a;
-    cin>>b;
-    for (int i=0;i<a.length();i++){
-        if(i==b-1){
-            cout<<a[i]<<endl;
+    string s1;
+
+    while(true){
+        getline(cin,s1);
+        if (s1==""){
+            break;
         }
+        cout<<s1<<endl;
     }
     return 0;
 
