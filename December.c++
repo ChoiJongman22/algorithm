@@ -122,65 +122,81 @@ using namespace std;
 //문자열 공부
 #include <string>
 
+// int main(){
+//     string s="Test";
+//     cout<<s[0];
+
+//     int a=2;
+//     string b;
+//     b=to_string(a);
+//     cout<<b<<endl;
+
+//     string str_a ="7";
+//     string str_b ="7.02";
+//     string str_c ="3.14";
+//     string str_d = "2300000000";
+
+//     int after_a = stoi(str_a); // "7"을 int형 7로 바꿔줌
+//     double after_b = stod(str_b); // "7.02"를 double형 7.02로 바꿔줌
+//     float after_c = stof(str_c); // "3.14"를 float형 3.14로 바꿔줌
+//     long int after_d = stof(str_d); // "2300000000"을 long int형으로 바꿔줌
+//     cout<<b.capacity()<<endl;
+//     string c;
+//     cout<<c.capacity()<<endl;
+//     c.reserve(100);
+//     cout<<c.capacity()<<endl;
+//     cout<<c.empty()<<endl;
+//     c="Almighty";
+//     c.append("f");
+//     cout<<c<<endl;
+
+//     string str1 = "TEST";
+//     string str2 = "ST";
+
+//     cout<<str1.find(str2)<<endl; // 2 반환 (TEST에서 ST의 S는 2번째 인덱스므로)
+
+
+//     // string str1 = "TEST";
+//     // string str2 = "your";
+//     // str1.replace(1, 2, str2); // str1의 1번째 인덱스인 E부터 2개의 길이만큼의 문자열이 str2로 변경
+//     // string str1 = "TEST";
+//     // str1.replace(str1.begin()+1, str1.begin()+4, "aa");
+//     // // EST를 aa로 변경하여, TaaT 가 반환됨
+
+
+//     string str3 = "aaad";
+//     string str4 = "aaaf";
+
+//     cout << (str3 < str4)<<endl; // 1(참)이 반환됩니다.
+//     // 즉, str1과 str2 중 사전 순으로 str1이 더 앞선 글자므로, str2보다 작습니다.
+
+//     string str5 = "10";
+//     string str6 = "6";
+
+//     cout << (str5 < str6); // 1이 반환됩니다.
+//     // 즉, 사전순으로는 10이 6보다 앞서 있기 때문입니다.
+
+//     string str7 = str5 + str6; // "106"
+//     string str8 = str6 + str5; // "610"
+
+//     cout << (str7 < str8); // "610"이 사전 순서상 더 뒤이므로 크고, 1이 반환됩니다.
+//     // 이를 응용하면, 같은 자릿수로 받아진 정수 형태(ex: "1234")의 문자열 비교는
+//     // 단순히 int형끼리 비교하는 것과 같습니다.    
+//     return 0;
+// }
+
+
+//문자열 다루기
 int main(){
-    string s="Test";
-    cout<<s[0];
-
-    int a=2;
-    string b;
-    b=to_string(a);
-    cout<<b<<endl;
-
-    string str_a ="7";
-    string str_b ="7.02";
-    string str_c ="3.14";
-    string str_d = "2300000000";
-
-    int after_a = stoi(str_a); // "7"을 int형 7로 바꿔줌
-    double after_b = stod(str_b); // "7.02"를 double형 7.02로 바꿔줌
-    float after_c = stof(str_c); // "3.14"를 float형 3.14로 바꿔줌
-    long int after_d = stof(str_d); // "2300000000"을 long int형으로 바꿔줌
-    cout<<b.capacity()<<endl;
-    string c;
-    cout<<c.capacity()<<endl;
-    c.reserve(100);
-    cout<<c.capacity()<<endl;
-    cout<<c.empty()<<endl;
-    c="Almighty";
-    c.append("f");
-    cout<<c<<endl;
-
-    string str1 = "TEST";
-    string str2 = "ST";
-
-    cout<<str1.find(str2)<<endl; // 2 반환 (TEST에서 ST의 S는 2번째 인덱스므로)
-
-
-    // string str1 = "TEST";
-    // string str2 = "your";
-    // str1.replace(1, 2, str2); // str1의 1번째 인덱스인 E부터 2개의 길이만큼의 문자열이 str2로 변경
-    // string str1 = "TEST";
-    // str1.replace(str1.begin()+1, str1.begin()+4, "aa");
-    // // EST를 aa로 변경하여, TaaT 가 반환됨
-
-
-    string str3 = "aaad";
-    string str4 = "aaaf";
-
-    cout << (str3 < str4)<<endl; // 1(참)이 반환됩니다.
-    // 즉, str1과 str2 중 사전 순으로 str1이 더 앞선 글자므로, str2보다 작습니다.
-
-    string str5 = "10";
-    string str6 = "6";
-
-    cout << (str5 < str6); // 1이 반환됩니다.
-    // 즉, 사전순으로는 10이 6보다 앞서 있기 때문입니다.
-
-    string str7 = str5 + str6; // "106"
-    string str8 = str6 + str5; // "610"
-
-    cout << (str7 < str8); // "610"이 사전 순서상 더 뒤이므로 크고, 1이 반환됩니다.
-    // 이를 응용하면, 같은 자릿수로 받아진 정수 형태(ex: "1234")의 문자열 비교는
-    // 단순히 int형끼리 비교하는 것과 같습니다.    
+    string a;
+    int b;
+    cin>>a;
+    cin>>b;
+    for (int i=0;i<a.length();i++){
+        if(i==b-1){
+            cout<<a[i]<<endl;
+        }
+    }
     return 0;
+
 }
