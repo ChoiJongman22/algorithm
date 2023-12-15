@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+#include <algorithm>
+#include <map>
 using namespace std;
 
 // int main(){
@@ -227,16 +228,67 @@ using namespace std;
 // }
 
 // 그대로 출력하기
-int main(){
-    string s1;
+// int main(){
+//     string s1;
 
-    while(true){
-        getline(cin,s1);
-        if (s1==""){
-            break;
+//     while(true){
+//         getline(cin,s1);
+//         if (s1==""){
+//             break;
+//         }
+//         cout<<s1<<endl;
+//     }
+//     return 0;
+
+// }
+
+// int main(){
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//     int testcase;
+//     cin>>testcase;
+//     int idx;
+//     int Array[10001]={};
+//     for (int i=0;i<testcase;i++){
+//         cin>>idx;
+//         Array[idx]+=1;
+//     }
+
+//     for (int i=1;i<=10000;i++){
+//         for(int j=1; j<=Array[i];j++){
+//             cout << i << "\n";
+//         }
+//     }
+// }
+
+//포켓몬 문제 풀이
+int main(){
+    map<string, int> pokemon;
+    vector<string> name;
+    int n,m;
+    string a;
+    cin>>n>>m;
+    vector<string> result;
+
+    for(int i=1;i<=n;i++){
+        cin>>a;
+        name.push_back(a);
+        pokemon.insert(make_pair(a,i));
+    } 
+    for(int i=0;i<m;i++){
+        cin>>a;
+        if(a[0]>=65 && a[0]<=90){
+            result.push_back(to_string(pokemon[a]));
         }
-        cout<<s1<<endl;
+        else{
+            result.push_back(name[stoi(a)-1]);
+        }
+        
     }
-    return 0;
+    for(int i=0;i<result.size();i++){
+        cout<<result[i]<<"\n";
+    }
 
 }
