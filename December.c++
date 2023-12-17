@@ -4,6 +4,8 @@
 #include <string>
 #include <algorithm>
 #include <map>
+#include<stack>
+
 using namespace std;
 
 // int main(){
@@ -264,31 +266,70 @@ using namespace std;
 // }
 
 //포켓몬 문제 풀이
-int main(){
-    map<string, int> pokemon;
-    vector<string> name;
-    int n,m;
-    string a;
-    cin>>n>>m;
-    vector<string> result;
+// int main(){
+//     map<string, int> pokemon;
+//     vector<string> name;
+//     int n,m;
+//     string a;
+//     cin>>n>>m;
+//     vector<string> result;
 
-    for(int i=1;i<=n;i++){
-        cin>>a;
-        name.push_back(a);
-        pokemon.insert(make_pair(a,i));
-    } 
-    for(int i=0;i<m;i++){
-        cin>>a;
-        if(a[0]>=65 && a[0]<=90){
-            result.push_back(to_string(pokemon[a]));
+//     for(int i=1;i<=n;i++){
+//         cin>>a;
+//         name.push_back(a);
+//         pokemon.insert(make_pair(a,i));
+//     } 
+//     for(int i=0;i<m;i++){
+//         cin>>a;
+//         if(a[0]>=65 && a[0]<=90){
+//             result.push_back(to_string(pokemon[a]));
+//         }
+//         else{
+//             result.push_back(name[stoi(a)-1]);
+//         }
+        
+//     }
+//     for(int i=0;i<result.size();i++){
+//         cout<<result[i]<<"\n";
+//     }
+
+// }
+
+int main(){
+    stack<char> pr;
+    int testcase;
+    cin>>testcase;
+    cin.ignore();
+
+    for(int i=0;i<testcase;i++){
+        int cnt=0;
+        string a;
+        getline(cin, a);
+        for(int j=0;j<a.length();j++){
+            if (a[j]=='('){
+                pr.push(a[j]);
+            }
+            else if(a[j]==')'){
+                if(!pr.empty()){
+                    pr.pop();
+                }
+                else{
+                    cnt++;
+                }
+            }
+        }
+        if(!pr.empty()){
+            cout<<"NO"<<'\n';
+        }
+        else if(cnt!=0){
+            cout<<"NO"<<'\n';
         }
         else{
-            result.push_back(name[stoi(a)-1]);
+            cout<<"YES"<<'\n';
         }
-        
+        while(!pr.empty()){
+            pr.pop();
+        }
     }
-    for(int i=0;i<result.size();i++){
-        cout<<result[i]<<"\n";
-    }
-
+    return 0;
 }
