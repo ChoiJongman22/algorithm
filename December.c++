@@ -4,8 +4,8 @@
 #include <string>
 #include <algorithm>
 #include <map>
-#include<stack>
-
+#include <stack>
+#include <queue>
 using namespace std;
 
 // int main(){
@@ -13,9 +13,9 @@ using namespace std;
 //     cin>>n>>m;
 //     int** arr1 = new int* [n];//메모리 할당
 //     int** arr2 = new int* [n];//메모리 할당
-//     for (int i = 0; i < n; ++i)	{		
-//         arr1[i] = new int[m];		
-//         arr2[i] = new int[m];	
+//     for (int i = 0; i < n; ++i)	{
+//         arr1[i] = new int[m];
+//         arr2[i] = new int[m];
 //     }
 //     for(int i=0;i<n;++i){
 //         for (int j=0;j<m;++j){
@@ -49,7 +49,6 @@ using namespace std;
 //     int sum=0;
 //     int n;
 //     cin>>n;
-    
 
 //     while(n--){
 //         int x,y;
@@ -62,10 +61,9 @@ using namespace std;
 //             }
 //         }
 //     }
-    
+
 //     cout<<sum<<endl;
 //     return 0;
-
 
 // }
 
@@ -93,14 +91,13 @@ using namespace std;
 //                     goal=sum;
 //                 }
 //             }
-//         }        
+//         }
 //     }
 //     cout<<goal<<endl;
 //     delete[] arr1;
 
 //     return 0;
 // }
-
 
 // int main(){
 //     int n;
@@ -112,7 +109,7 @@ using namespace std;
 //             cout<<"-1";
 //             return 0;
 //         }
-        
+
 //         if((n-(5*x))%3==0){
 //             y=(n-(5*x))/3;
 //             break;
@@ -122,7 +119,6 @@ using namespace std;
 //     cout<<x+y<<endl;
 //     return 0;
 // }
-
 
 //문자열 공부
 
@@ -159,14 +155,12 @@ using namespace std;
 
 //     cout<<str1.find(str2)<<endl; // 2 반환 (TEST에서 ST의 S는 2번째 인덱스므로)
 
-
 //     // string str1 = "TEST";
 //     // string str2 = "your";
 //     // str1.replace(1, 2, str2); // str1의 1번째 인덱스인 E부터 2개의 길이만큼의 문자열이 str2로 변경
 //     // string str1 = "TEST";
 //     // str1.replace(str1.begin()+1, str1.begin()+4, "aa");
 //     // // EST를 aa로 변경하여, TaaT 가 반환됨
-
 
 //     string str3 = "aaad";
 //     string str4 = "aaaf";
@@ -185,10 +179,9 @@ using namespace std;
 
 //     cout << (str7 < str8); // "610"이 사전 순서상 더 뒤이므로 크고, 1이 반환됩니다.
 //     // 이를 응용하면, 같은 자릿수로 받아진 정수 형태(ex: "1234")의 문자열 비교는
-//     // 단순히 int형끼리 비교하는 것과 같습니다.    
+//     // 단순히 int형끼리 비교하는 것과 같습니다.
 //     return 0;
 // }
-
 
 //문자열 다루기 1
 // int main(){
@@ -211,14 +204,14 @@ using namespace std;
 //     int r1;
 //     string s1;
 //     string s2="";
-//     vector<string> strArray; 
+//     vector<string> strArray;
 //     cin>>testcase;
 //     while(testcase--){
 //         cin>>r1>>s1;
 //         for (int i=0;i<s1.length();i++){
 //             for(int j=0;j<r1;j++){
 //                 s2+=s1[i];
-//             }      
+//             }
 //         }
 //         strArray.push_back(s2);
 //         s2="";
@@ -278,7 +271,7 @@ using namespace std;
 //         cin>>a;
 //         name.push_back(a);
 //         pokemon.insert(make_pair(a,i));
-//     } 
+//     }
 //     for(int i=0;i<m;i++){
 //         cin>>a;
 //         if(a[0]>=65 && a[0]<=90){
@@ -287,7 +280,7 @@ using namespace std;
 //         else{
 //             result.push_back(name[stoi(a)-1]);
 //         }
-        
+
 //     }
 //     for(int i=0;i<result.size();i++){
 //         cout<<result[i]<<"\n";
@@ -295,40 +288,121 @@ using namespace std;
 
 // }
 
-int main(){
-    stack<char> pr;
-    int testcase;
-    cin>>testcase;
-    cin.ignore();
+// int main()
+// {
+//     stack<char> pr;
+//     int testcase;
+//     cin >> testcase;
+//     cin.ignore();
 
-    for(int i=0;i<testcase;i++){
-        int cnt=0;
-        string a;
-        getline(cin, a);
-        for(int j=0;j<a.length();j++){
-            if (a[j]=='('){
-                pr.push(a[j]);
+//     for (int i = 0; i < testcase; i++)
+//     {
+//         int cnt = 0;
+//         string a;
+//         getline(cin, a);
+//         for (int j = 0; j < a.length(); j++)
+//         {
+//             if (a[j] == '(')
+//             {
+//                 pr.push(a[j]);
+//             }
+//             else if (a[j] == ')')
+//             {
+//                 if (!pr.empty())
+//                 {
+//                     pr.pop();
+//                 }
+//                 else
+//                 {
+//                     cnt++;
+//                 }
+//             }
+//         }
+//         if (!pr.empty())
+//         {
+//             cout << "NO" << '\n';
+//         }
+//         else if (cnt != 0)
+//         {
+//             cout << "NO" << '\n';
+//         }
+//         else
+//         {
+//             cout << "YES" << '\n';
+//         }
+//         while (!pr.empty())
+//         {
+//             pr.pop();
+//         }
+//     }
+//     return 0;
+// }
+
+int main()
+{
+    ios_base :: sync_with_stdio(false);
+	cin.tie(NULL);
+    queue<int> q;
+    int testcase;
+    cin >> testcase;
+    string a;
+    int b;
+    while (testcase--)
+    {
+        cin >> a;
+        if (a == "push")
+        {
+            cin>>b;
+            q.push(b);
+        }
+        else if (a == "pop")
+        {
+            if(q.empty()){
+                cout<<"-1"<<"\n";
             }
-            else if(a[j]==')'){
-                if(!pr.empty()){
-                    pr.pop();
-                }
-                else{
-                    cnt++;
-                }
+
+            else{
+                cout<<q.front()<<"\n";
+                q.pop();
             }
+            
         }
-        if(!pr.empty()){
-            cout<<"NO"<<'\n';
+        else if (a == "front")
+        {
+            if(q.empty()){
+                cout<<"-1"<<"\n";
+            }
+
+            else{
+                cout << q.front() << "\n";
+            }
+            
         }
-        else if(cnt!=0){
-            cout<<"NO"<<'\n';
+        else if (a == "back")
+        {
+            if(q.empty()){
+                cout<<"-1"<<"\n";
+            }
+
+            else{
+                cout << q.back() << "\n";
+            }
+            
         }
-        else{
-            cout<<"YES"<<'\n';
+        else if (a == "size")
+        {
+            cout << q.size() << "\n";
         }
-        while(!pr.empty()){
-            pr.pop();
+        else if (a == "empty")
+        {
+            if (q.empty())
+            {
+                cout << "1" << "\n";
+            }
+            else
+            {
+                cout << "0"<< "\n";
+            }
         }
     }
     return 0;
