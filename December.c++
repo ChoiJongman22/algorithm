@@ -6,6 +6,7 @@
 #include <map>
 #include <stack>
 #include <queue>
+#include <deque>
 using namespace std;
 
 // int main(){
@@ -338,70 +339,113 @@ using namespace std;
 //     return 0;
 // }
 
+// int main()
+// {
+//     ios_base :: sync_with_stdio(false);
+// 	cin.tie(NULL);
+//     queue<int> q;
+//     int testcase;
+//     cin >> testcase;
+//     string a;
+//     int b;
+//     while (testcase--)
+//     {
+//         cin >> a;
+//         if (a == "push")
+//         {
+//             cin>>b;
+//             q.push(b);
+//         }
+//         else if (a == "pop")
+//         {
+//             if(q.empty()){
+//                 cout<<"-1"<<"\n";
+//             }
+
+//             else{
+//                 cout<<q.front()<<"\n";
+//                 q.pop();
+//             }
+            
+//         }
+//         else if (a == "front")
+//         {
+//             if(q.empty()){
+//                 cout<<"-1"<<"\n";
+//             }
+
+//             else{
+//                 cout << q.front() << "\n";
+//             }
+            
+//         }
+//         else if (a == "back")
+//         {
+//             if(q.empty()){
+//                 cout<<"-1"<<"\n";
+//             }
+
+//             else{
+//                 cout << q.back() << "\n";
+//             }
+            
+//         }
+//         else if (a == "size")
+//         {
+//             cout << q.size() << "\n";
+//         }
+//         else if (a == "empty")
+//         {
+//             if (q.empty())
+//             {
+//                 cout << "1" << "\n";
+//             }
+//             else
+//             {
+//                 cout << "0"<< "\n";
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
 int main()
 {
-    ios_base :: sync_with_stdio(false);
-	cin.tie(NULL);
-    queue<int> q;
-    int testcase;
-    cin >> testcase;
-    string a;
-    int b;
-    while (testcase--)
+    ios_base ::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int balls;
+    cin >> balls;
+    deque<pair<int, int> > q;
+    for (int i = 1; i <= balls; i++)
     {
-        cin >> a;
-        if (a == "push")
-        {
-            cin>>b;
-            q.push(b);
-        }
-        else if (a == "pop")
-        {
-            if(q.empty()){
-                cout<<"-1"<<"\n";
-            }
+        int temp;
+        cin >> temp;
+        q.push_back(make_pair(i, temp));
+    }
 
-            else{
-                cout<<q.front()<<"\n";
-                q.pop();
-            }
-            
-        }
-        else if (a == "front")
+    while (!q.empty())
+    {
+        int next = q.front().second;
+        cout << q.front().first << ' ';
+        q.pop_front();
+        if (q.empty())
+            break;
+        if (next > 0)
         {
-            if(q.empty()){
-                cout<<"-1"<<"\n";
-            }
-
-            else{
-                cout << q.front() << "\n";
-            }
-            
-        }
-        else if (a == "back")
-        {
-            if(q.empty()){
-                cout<<"-1"<<"\n";
-            }
-
-            else{
-                cout << q.back() << "\n";
-            }
-            
-        }
-        else if (a == "size")
-        {
-            cout << q.size() << "\n";
-        }
-        else if (a == "empty")
-        {
-            if (q.empty())
+            for (int i = 0; i < next - 1; i++)
             {
-                cout << "1" << "\n";
+                q.push_back(q.front());
+                q.pop_front();
             }
-            else
+        }
+        else
+        {
+            next *= -1;
+            for (int i = 0; i < next; i++)
             {
-                cout << "0"<< "\n";
+                q.push_front(q.back());
+                q.pop_back();
             }
         }
     }
