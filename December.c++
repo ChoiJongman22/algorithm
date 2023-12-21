@@ -439,6 +439,9 @@ int main()
                 q.pop_front();
             }
         }
+
+
+        
         else
         {
             next *= -1;
