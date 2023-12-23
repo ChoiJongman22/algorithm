@@ -7,6 +7,8 @@
 #include <stack>
 #include <queue>
 #include <deque>
+#define MAX 100001
+
 using namespace std;
 
 // int main(){
@@ -409,48 +411,79 @@ using namespace std;
 //     return 0;
 // }
 
-int main()
-{
-    ios_base ::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    int balls;
-    cin >> balls;
-    deque<pair<int, int> > q;
-    for (int i = 1; i <= balls; i++)
-    {
-        int temp;
-        cin >> temp;
-        q.push_back(make_pair(i, temp));
+// int main()
+// {
+//     ios_base ::sync_with_stdio(false);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+//     int balls;
+//     cin >> balls;
+//     deque<pair<int, int> > q;
+//     for (int i = 1; i <= balls; i++)
+//     {
+//         int temp;
+//         cin >> temp;
+//         q.push_back(make_pair(i, temp));
+//     }
+
+//     while (!q.empty())
+//     {
+//         int next = q.front().second;
+//         cout << q.front().first << ' ';
+//         q.pop_front();
+//         if (q.empty())
+//             break;
+//         if (next > 0)
+//         {
+//             for (int i = 0; i < next - 1; i++)
+//             {
+//                 q.push_back(q.front());
+//                 q.pop_front();
+//             }
+//         }
+//         else
+//         {
+//             next *= -1;
+//             for (int i = 0; i < next; i++)
+//             {
+//                 q.push_front(q.back());
+//                 q.pop_back();
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
+// int main(){
+//     ios_base ::sync_with_stdio(false);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+//     int testcase;
+//     cin >> testcase;
+//     vector<int> test;
+//     for (int i = 0; i < testcase; i++)
+//     {
+//         int temp;
+//         cin>>temp;
+//         test.push_back(temp);
+//     }
+// }
+
+int series[MAX], dp[MAX]={0,};// 배열 선언
+int main() {
+    int n, i;
+    cin>>n;
+    for(i=0; i<n; i++) {
+        cin>>series[i];
+        dp[i]=series[i];
     }
-
-    while (!q.empty())
-    {
-        int next = q.front().second;
-        cout << q.front().first << ' ';
-        q.pop_front();
-        if (q.empty())
-            break;
-        if (next > 0)
-        {
-            for (int i = 0; i < next - 1; i++)
-            {
-                q.push_back(q.front());
-                q.pop_front();
-            }
-        }
-
-
-        
-        else
-        {
-            next *= -1;
-            for (int i = 0; i < next; i++)
-            {
-                q.push_front(q.back());
-                q.pop_back();
-            }
+    int maxSum=dp[0];
+    for(i=1; i<n; i++) {
+        dp[i]=max(dp[i], dp[i-1]+series[i]);//연속합이니까 1개 이상의 수의 합이 가장 크면 된다. 
+        if(dp[i]>maxSum) {
+            maxSum=dp[i];
         }
     }
+    cout<<maxSum<<endl;
     return 0;
 }
