@@ -469,21 +469,28 @@ using namespace std;
 //     }
 // }
 
-int series[MAX], dp[MAX]={0,};// 배열 선언
-int main() {
+int series[MAX], dp[MAX] = {0,}; // 배열 선언
+int main()
+{
+    ios_base ::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
     int n, i;
-    cin>>n;
-    for(i=0; i<n; i++) {
-        cin>>series[i];
-        dp[i]=series[i];
+    cin >> n;
+    for (i = 0; i < n; i++)
+    {
+        cin >> series[i];
+        dp[i] = series[i];
     }
-    int maxSum=dp[0];
-    for(i=1; i<n; i++) {
-        dp[i]=max(dp[i], dp[i-1]+series[i]);//연속합이니까 1개 이상의 수의 합이 가장 크면 된다. 
-        if(dp[i]>maxSum) {
-            maxSum=dp[i];
+    int maxSum = dp[0];
+    for (i = 1; i < n; i++)
+    {
+        dp[i] = max(dp[i], dp[i - 1] + series[i]); //연속합이니까 1개 이상의 수의 합이 가장 크면 된다.
+        if (dp[i] > maxSum)
+        {
+            maxSum = dp[i];
         }
     }
-    cout<<maxSum<<endl;
+    cout << maxSum << '\n';
     return 0;
 }
