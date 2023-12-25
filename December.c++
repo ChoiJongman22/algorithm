@@ -7,7 +7,7 @@
 #include <stack>
 #include <queue>
 #include <deque>
-#define MAX 100001
+#define MAX 500002
 
 using namespace std;
 
@@ -469,28 +469,55 @@ using namespace std;
 //     }
 // }
 
-int series[MAX], dp[MAX] = {0,}; // 배열 선언
-int main()
-{
-    ios_base ::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    int n, i;
-    cin >> n;
-    for (i = 0; i < n; i++)
-    {
-        cin >> series[i];
-        dp[i] = series[i];
-    }
-    int maxSum = dp[0];
-    for (i = 1; i < n; i++)
-    {
-        dp[i] = max(dp[i], dp[i - 1] + series[i]); //연속합이니까 1개 이상의 수의 합이 가장 크면 된다.
-        if (dp[i] > maxSum)
-        {
-            maxSum = dp[i];
-        }
-    }
-    cout << maxSum << '\n';
-    return 0;
-}
+// int series[MAX], dp[MAX] = {0,}; // 배열 선언
+// int main()
+// {
+//     ios_base ::sync_with_stdio(false);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+//     int n, i;
+//     cin >> n;
+//     for (i = 0; i < n; i++)
+//     {
+//         cin >> series[i];
+//         dp[i] = series[i];
+//     }
+//     int maxSum = dp[0];
+//     for (i = 1; i < n; i++)
+//     {
+//         dp[i] = max(dp[i], dp[i - 1] + series[i]); //연속합이니까 1개 이상의 수의 합이 가장 크면 된다.
+//         if (dp[i] > maxSum)
+//         {
+//             maxSum = dp[i];
+//         }
+//     }
+//     cout << maxSum << '\n';
+//     return 0;
+// }
+
+// 숫자카드2: 이분탐색으로 문제풀이
+// int main(){
+//     ios::sync_with_stdio(false);
+// 	cin.tie(0);
+//     cout.tie(0);
+//     int n;
+//     cin >> n;
+
+//     int card[MAX] = {0,};
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> card[i];
+//     }
+//     sort(card, card + n);
+//     int m;
+//     cin >> m;
+//     for (int i = 0; i < m; i++)
+//     {
+//         int temp;
+//         cin >> temp;
+//         cout << upper_bound(card, card + n, temp) - lower_bound(card, card + n, temp) << "\n";
+//     }
+//     return 0;
+// }
+
+// 숫자카드2: 해쉬 맵으로 문제풀이
