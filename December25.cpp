@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <queue>
 #include <deque>
-#define MAX 500002
+#define MAX 500002;
 using namespace std;
 
 // 숫자카드2: 이분탐색으로 문제풀이
