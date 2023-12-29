@@ -36,21 +36,49 @@ using namespace std;
 //     return 0;
 
 // }
+//단순 정렬문제
+// int main(){
+//     ios::sync_with_stdio(0);
+//     cin.tie(0);
+//     cout.tie(0);
+//     int testcase;
+//     cin>>testcase;
+//     vector<int> arr;
+//     for(int i=0;i<testcase;i++){
+//         int temp;
+//         cin>>temp;
+//         arr.push_back(temp);
+//     }
+//     sort(arr.begin(),arr.end());
+//     for(int i=0;i<testcase;i++){
+//         cout<<arr[i]<<"\n";
+//     }
+// }
 
+
+// 최대 힙
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int testcase;
     cin>>testcase;
-    vector<int> arr;
+    priority_queue<int,vector<int>> heap;
+    
     for(int i=0;i<testcase;i++){
         int temp;
         cin>>temp;
-        arr.push_back(temp);
+        if(temp==0){
+            if(heap.empty()){
+                cout<<0<<'\n';
+            }else{
+                cout<<heap.top()<<"\n";//heap top은 최대
+                heap.pop();//heap의 top 제거
+            }
+        }else{
+            heap.push(temp);
+        }
     }
-    sort(arr.begin(),arr.end());
-    for(int i=0;i<testcase;i++){
-        cout<<arr[i]<<"\n";
-    }
+    return 0;
+
 }
