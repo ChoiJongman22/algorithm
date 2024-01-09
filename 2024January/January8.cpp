@@ -66,37 +66,62 @@ using namespace std;
 //     return 0;
 // }
 
-int dp[20][20];
-int ans[20][20];
+// int dp[20][20];
+// int ans[20][20];
 
-int main()
-{
+// int main()
+// {
+//     ios::sync_with_stdio(0);
+//     cin.tie(0);
+//     cout.tie(0);
+//     int testcase;
+//     cin >> testcase;
+//     for (int i = 0; i < testcase; i++)
+//     {
+//         int n, k;
+//         cin >> n >> k;
+//         for (int j = 0; j <= n; j++)
+//         {
+//             for (int u = 1; u <= k; u++)
+//             {
+
+//                 if (j == 0)
+//                 {
+//                     dp[j][u] = u;
+//                     ans[j][u] = u;
+//                 }
+//                 if (u != 1 && j != 0)
+//                 {
+//                     dp[j][u] = dp[j - 1][u] + dp[j][u - 1];
+//                     ans[j][u] += dp[j][u];
+//                 }
+//             }
+//         }
+//         cout << ans[n][k] << "\n";
+//     }
+// }
+
+int dp[20][20];
+
+int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int testcase;
     cin >> testcase;
-    for (int i = 0; i < testcase; i++)
-    {
+    for (int i = 0; i < testcase; i++) {
         int n, k;
         cin >> n >> k;
-        for (int j = 0; j <= n; j++)
-        {
-            for (int u = 1; u <= k; u++)
-            {
-
-                if (j == 0)
-                {
-                    dp[j][u] = u;
-                    ans[j][u] = u;
-                }
-                if (u != 1 && j != 0)
-                {
-                    dp[j][u] = dp[j - 1][u] + dp[j][u - 1];
-                    ans[j][u] += dp[j][u];
-                }
+        for (int j = 0; j <= n; j++) {
+            dp[j][1] = 1; // 각 층의 1호는 항상 1명이 살고 있음
+        }
+        for (int u = 2; u <= k; u++) {
+            dp[0][u] = u; // 0층 u호에는 u명이 살고 있음
+            for (int j = 1; j <= n; j++) {
+                dp[j][u] = dp[j - 1][u] + dp[j][u - 1];
             }
         }
-        cout << ans[n][k] << "\n";
+        cout << dp[n][k] << "\n";
     }
+    return 0;
 }
