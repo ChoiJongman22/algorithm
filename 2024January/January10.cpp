@@ -147,37 +147,36 @@ using namespace std;
 //     return 0;
 // }
 
-
-
+vector<vector<int> > adj(200);//넉넉하게 선언하자.
+vector<bool> visited(200, false);
+int ans=0;
 //바이러스(DFS)
-void dfs(vector<bool> &visited, vector<vector<int>> &adj, int start, int cnt){
-    for(int u:adj[start]){
+void dfs(int n)
+{
+    for(int u :adj[n]){
         if (!visited[u]){
             visited[u]=true;
-            cnt++;
-            dfs(visited,adj,u,cnt);
+            ans++;
+            dfs(u);
         }
     }
-    cout<<cnt<<"\n";
 }
-
-int main(){
+int main()
+{
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int N, M;
-    cin>> N>>M;
-    int n,m;
-    int cnt=0;
-    vector<vector<int>> adj(100,vector<int>());
-    vector<bool> visited(100,false);
-    for(int i=1;i<=M;i++){
-        cin>>n>>m;
+    cin>>N>>M;
+    for (int i = 0; i < M; i++)
+    {
+        int n, m;
+        cin >> n >> m;
         adj[n].push_back(m);
         adj[m].push_back(n);
-
     }
-    dfs(visited,adj,1,cnt);
-    // cout << cnt <<"\n";
+    visited[1]=true;
+    dfs(1);
+    cout<<ans<<endl;
     return 0;
 }
