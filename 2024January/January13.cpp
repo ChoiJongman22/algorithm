@@ -14,6 +14,8 @@
 using namespace std;
 #define INF 10000000
 
+
+// 지렁이 배추
 // vector<vector<int> > bc(52, vector<int>(52));
 // vector<vector<int> > visited(52, vector<int>(52));
 // //위 아래 좌 우
@@ -75,27 +77,50 @@ using namespace std;
 //     return 0;
 // }
 
-vector<int> v(301, 0);
-vector<int> ans(301, 0);
-int main()
-{
+// DP 계단 오르기
+// vector<int> v(301, 0);
+// vector<int> ans(301, 0);
+// int main()
+// {
+//     int testcase;
+//     cin >> testcase;
+//     ios::sync_with_stdio(0);
+//     cin.tie(0);
+//     cout.tie(0);
+    
+//     for (int i = 1; i <= testcase; i++)
+//     {
+//         cin >> v[i];
+//     }
+//     ans[1] = v[1];
+//     ans[2] = v[1] + v[2];
+//     ans[3] = max(v[1] + v[3], v[2] + v[3]);
+//     for (int i = 4; i <= testcase; i++)
+//     {
+//         ans[i] = max(ans[i - 2] + v[i], ans[i - 3] + v[i - 1]+v[i]); //3개가 더해질 수도 있으니까?
+//     }
+//     cout<<ans[testcase]<<"\n";
+//     return 0;
+// }
+
+
+// 정수 삼각형
+
+vector<vector<int>> tri(501, vector<int>(501, 0)); // tri 배열의 크기를 501로 설정
+int main() {
     int testcase;
     cin >> testcase;
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    
-    for (int i = 1; i <= testcase; i++)
-    {
-        cin >> v[i];
+    int maxnumber = 0;
+    for (int i = 1; i <= testcase; i++) { // i와 j를 1부터 시작하도록 수정
+        for (int j = 1; j <= i; j++) {   // i와 j를 1부터 시작하도록 수정
+            cin >> tri[i][j];
+        }
     }
-    ans[1] = v[1];
-    ans[2] = v[1] + v[2];
-    ans[3] = max(v[1] + v[3], v[2] + v[3]);
-    for (int i = 4; i <= testcase; i++)
-    {
-        ans[i] = max(ans[i - 2] + v[i], ans[i - 3] + v[i - 1]+v[i]); //3개가 더해질 수도 있으니까?
+    for (int i = 1; i <= testcase; i++) {
+        for (int j = 1; j <= i; j++) {//0부터 하면 out of bounds가 나기 때문에 주의
+            tri[i][j] = max(tri[i - 1][j - 1] + tri[i][j], tri[i - 1][j] + tri[i][j]);
+            maxnumber = max(maxnumber, tri[i][j]);
+        }
     }
-    cout<<ans[testcase]<<"\n";
-    return 0;
+    cout << maxnumber << endl;
 }
