@@ -13,7 +13,7 @@ using namespace std;
 #define INF 10000000
 #define MAX 31
 
-
+//그리디 세탁소
 int main(){
     int T;
     cin>> T;
@@ -37,5 +37,4 @@ int main(){
         }
         cout<<"\n";
     }
-
 }
