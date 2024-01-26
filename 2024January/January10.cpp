@@ -21,7 +21,7 @@ using namespace std;
 // {
 //     int V;
 //     vector<vector<int> > adj;      //인접리스트
-//     Graph(int v) : V(v), adj(v){}; //정점수 v로 초기화, 크기가 V인 빈 인 접리스트로 초기화
+//     Graph(int v) : V(v), adj(v){}; //정점수 v로 초기화, 크기가 V인 빈 인 접리스트로 초기화
 //     void addEdge(int u, int v)
 //     {
 //         adj[u].push_back(v); //u->v로 연결된 간선 추가
@@ -44,7 +44,7 @@ using namespace std;
 
 // void bfs(Graph &graph, int start)
 // {
-//     vector<bool> visited(graph.V, false); //방문 여부를 저장
+//     vector<bool> visited(graph.V, false); //방문 여부를 저장
 //     queue<int> q;
 
 //     visited[start] = true;

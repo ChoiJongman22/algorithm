@@ -15,7 +15,7 @@ using namespace std;
 #define INF 10000000
 
 // 거스름돈 기본 그리디
-//int main()
+// int main()
 // {
 //     int coins[] = {500, 100, 50, 10}; // 화폐 단위
 //     int n, count = 0;
@@ -35,27 +35,27 @@ using namespace std;
 
 // 설탕배달
 
-//int main()
-// {
-//     ios::sync_with_stdio(0);
-//     cin.tie(0);
-//     cout.tie(0);
-//     int N;
-//     cin >> N;
-//     int count = 0;
-//     while (N >= 0)
-//     {
-//         if (N % 5 == 0)
-//         {
-//             count += N / 5; //5로 나누는게 가장 유의미하기때문에
-//             cout << count;
-//             return 0;
-//         }
-//         N -= 3;
-//         count++;
-//     }
-//     cout << -1;
-// }
+// int main()
+//  {
+//      ios::sync_with_stdio(0);
+//      cin.tie(0);
+//      cout.tie(0);
+//      int N;
+//      cin >> N;
+//      int count = 0;
+//      while (N >= 0)
+//      {
+//          if (N % 5 == 0)
+//          {
+//              count += N / 5; //5로 나누는게 가장 유의미하기때문에
+//              cout << count;
+//              return 0;
+//          }
+//          N -= 3;
+//          count++;
+//      }
+//      cout << -1;
+//  }
 
 // 동전 0, 생각을 좀 깊게 좀
 // int main()
@@ -85,28 +85,38 @@ using namespace std;
 //     cout << count << "\n";
 // }
 
+// 잃어버린 괄호
 
-//읽어버린 괄호
-int main(){
-    string input;
-    cin>>input;
-    int result;
-    string num;
+int main()
+{
+    string a = "";
+    cin >> a;
+    string num = "";
+    int answer=0;
     bool isMinus=false;
-    for(int i=0;i<=input.size();i++){
-        if(input[i]=='-' ||input[i]=='+'||i=input.size()){
-            if(isMinus){
-                result-=stoi(num);
-                num="";
-            }else{
-                result+=stoi(num);
+    for (int i = 0; i <= a.size(); i++)
+    {
+        if (a[i] == '-' || a[i] == '+' || i == a.size())
+        {
+            if (isMinus)
+            {
+                answer -= stoi(num);
+                num="";//초기화 반드시
             }
-        }else{
-            num+=input[i];
+            else
+            {
+                answer += stoi(num);
+                num="";
+            }
         }
-        if(isMinus){
-            isMinus=true;
+        else
+        {
+            num += a[i];
         }
-
+        if (a[i] == '-')
+        {
+            isMinus = true;
+        }
     }
+    cout<<answer<<"\n";
 }
