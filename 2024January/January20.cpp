@@ -24,7 +24,6 @@ vector<vector<int> > visited(101, vector<int>(101, 0));
 void bfs(int h, int start, int end)
 {
     queue<pair<int, int> > q;
-    bool isOk = false;
     q.push({start, end});
     visited[start][end] = 1;
     while (!q.empty())
