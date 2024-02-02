@@ -1,7 +1,10 @@
-// #include <iostream>
-// #include <vector>
-// #include <cmath>
-// using namespace std;
+
+
+// 백준 리모컨 문제
+//  #include <iostream>
+//  #include <vector>
+//  #include <cmath>
+//  using namespace std;
 
 // vector<bool> remote(10);//리모컨 고장난지 여부 확인할거야
 
@@ -50,6 +53,7 @@
 //     return 0;
 // }
 
+// 백준 스택
 // #include <stack>
 // #include <iostream>
 // using namespace std;
@@ -84,25 +88,126 @@
 //     cout<<answer<<"\n";
 // }
 
-//기본에 충실하자 Queue
-#include <iostream>
-#include <queue>
-using namespace std;
+// 기본에 충실하자 Queue
+// 백준 카드2
+//  #include <iostream>
+//  #include <queue>
+//  using namespace std;
 
-int main()
-{
-    int T;
-    cin >> T;
-    queue<int> q;
-    for (int i = 0; i < T; i++)
-    {
-        q.push(i+1);
-    }
-    while (q.size()>1)
-    {
-        q.pop();
-        q.push(q.front());
-        q.pop();
-    }
-    cout<<q.front()<<'\n';
-}
+// int main()
+// {
+//     int T;
+//     cin >> T;
+//     queue<int> q;
+//     for (int i = 0; i < T; i++)
+//     {
+//         q.push(i+1);
+//     }
+//     while (q.size()>1)
+//     {
+//         q.pop();
+//         q.push(q.front());
+//         q.pop();
+//     }
+//     cout<<q.front()<<'\n';
+// }
+// #include <iostream>
+// #include <map>
+// #include <vector>
+// using namespace std;
+
+// vector<int> checks(21, 0);
+// int check(int i)
+// {
+//     if (checks[i] == 1)
+//     {
+//         return 1;
+//     }
+//     return 0;
+// }
+// int main()
+// {
+//     int T;
+//     cin >> T;
+//     int var;
+//     vector<int> S;
+//     S.resize(21);
+//     map<string, int> ops;
+//     ops["add"] = 1;
+//     ops["remove"] = 2;
+//     ops["check"] = 3;
+//     ops["toggle"] = 4;
+//     ops["all"] = 5;
+//     ops["empty"] = 6;
+//     string op;
+//     for (int i = 0; i < T; i++)
+//     {
+//         cin >> op;
+//         switch (ops[op])
+//         {
+//         case 1:
+//         {
+//             cin >> var;
+//             if (check(var) == 0)
+//             {
+//                 S.push_back(var);
+//                 checks[var] = 1;
+//             }
+//         }
+//         break;
+
+//         case 3:
+//         {
+//             cin >> var;
+//             cout << check(var) << "\n";
+//         }
+//         break;
+
+//         case 2:
+//         {
+//             cin >> var;
+//             if (check(var) == 1)
+//             {
+//                 S.erase(S.begin() + var);
+//                 checks[var] = 0;
+//             }
+//         }
+//         break;
+
+//         case 4:
+//         {
+//             cin >> var;
+//             if (check(var) == 1)
+//             {
+//                 S.erase(S.begin() + var);
+//                 checks[var] = 0;
+//             }
+//             else
+//             {
+//                 S.push_back(var);
+//                 checks[var] = 1;
+//             }
+//         }
+//         break;
+
+//         case 5:
+//         {
+//             S.clear();
+//             for (int i = 0; i < 20; i++)
+//             {
+//                 S.push_back(i + 1);
+//             }
+//         }
+//         break;
+
+//         case 6:
+//         {
+//             S.clear();
+//         }
+//         break;
+
+//         default:
+//             break;
+//         }
+//     }
+// }
